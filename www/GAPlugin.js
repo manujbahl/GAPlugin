@@ -44,23 +44,19 @@
         return cordovaRef.exec(success, fail, 'GAPlugin', 'exitGA', []);
     };
  
-    if (cordovaRef && cordovaRef.addConstructor) {
-        cordovaRef.addConstructor(init);
+    if (cordovaRef)
+    {
+        cordovaRef.addConstructor(function() {
+            if(!window.plugins) {
+                window.plugins = {};
+            }
+            if(!window.plugins.gaPlugin) {
+                window.plugins.gaPlugin = new GAPlugin();
+            }
+        });
     }
-    else {
-        init();
-    }
-
-    function init () {
-        if(!window.plugins) {
-            window.plugins = {};
-        }
-        if(!window.plugins.gaPlugin) {
-            window.plugins.gaPlugin = new GAPlugin();
-        }
-    }
-
-    if (typeof module != 'undefined' && module.exports) {
-        module.exports = new GAPlugin();
-    }
+    
+    //if (typeof module != 'undefined' && module.exports) {
+    //    module.exports = new GAPlugin();
+    //}
 })(); /* End of Temporary Scope. */
