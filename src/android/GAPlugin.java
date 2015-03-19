@@ -1,6 +1,8 @@
 package com.adobe.plugins;
 
-//import com.google.analytics.tracking.android.*;
+import com.google.analytics.tracking.android.Tracker;
+import com.google.analytics.tracking.android.GoogleAnalytics;
+import com.google.analytics.tracking.android.HitBuilders;
 import android.util.Log;
 import com.google.android.gms.common.util.VisibleForTesting;
 import com.google.android.gms.analytics.internal.Command;
@@ -9,6 +11,7 @@ import com.google.android.gms.analytics.internal.IAnalyticsService;
 import org.apache.cordova.CordovaPlugin;          // modificato da org.apache.cordova.CordovaPlugin a org.apache.cordova.api.CordovaPlugin
 import org.apache.cordova.CallbackContext;          // modificato org.apache.cordova.CallbackContext a org.apache.cordova.api.CallbackContext
 import org.json.JSONArray;
+import org.json.JSONException;
 
 //import com.google.analytics.tracking.android.GAServiceManager;
 //import com.google.analytics.tracking.android.GoogleAnalytics;
