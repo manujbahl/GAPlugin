@@ -2,9 +2,10 @@ package com.adobe.plugins;
 
 //import com.google.analytics.tracking.android.*;
 import android.util.Log;
-import com.google.android.gms.common.*;
-import com.google.android.gms.analytics.*;
-import com.phonegap.helloworld.R;
+import com.google.android.gms.common.util.VisibleForTesting;
+import com.google.android.gms.analytics.internal.Command;
+import com.google.android.gms.analytics.internal.IAnalyticsService;
+//import com.phonegap.helloworld.R;
 import org.apache.cordova.CordovaPlugin;          // modificato da org.apache.cordova.CordovaPlugin a org.apache.cordova.api.CordovaPlugin
 import org.apache.cordova.CallbackContext;          // modificato org.apache.cordova.CallbackContext a org.apache.cordova.api.CallbackContext
 import org.json.JSONArray;
