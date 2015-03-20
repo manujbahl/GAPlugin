@@ -24,7 +24,7 @@ public class GAPlugin extends CordovaPlugin {
                 return true;
             } catch (final Exception e) {
                 //alert("exception e = " + e);
-                callback.error("initGA error :: " + e.getMessage() + " - " + e.getString());
+                callback.error("initGA error :: " + e.getMessage());
             }
         } else if (action.equals("exitGA")) {
             try {
@@ -35,7 +35,7 @@ public class GAPlugin extends CordovaPlugin {
                 return true;
             } catch (final Exception e) {
                 //alert("exception e = " + e);
-                callback.error("exitGA error :: " + e.getMessage()+ " - " + e.getString());
+                callback.error("exitGA error :: " + e.getMessage());
             }
         } else if (action.equals("trackEvent")) {
             try {
@@ -57,7 +57,7 @@ public class GAPlugin extends CordovaPlugin {
                 return true;
             } catch (final Exception e) {
                 //alert("exception e = " + e);
-                callback.error("trackPage error :: " + e.getMessage()+ " - " + e.getString());
+                callback.error("trackPage error :: " + e.getMessage());
             }
         } else if (action.equals("setVariable")) {
             try {
@@ -68,7 +68,7 @@ public class GAPlugin extends CordovaPlugin {
                 return true;
             } catch (final Exception e) {
                 //alert("exception e = " + e);
-                callback.error("setVariable error :: " + e.getMessage()+ " - " + e.getString());
+                callback.error("setVariable error :: " + e.getMessage());
             }
         }
         else if (action.equals("setDimension")) {
@@ -79,7 +79,7 @@ public class GAPlugin extends CordovaPlugin {
                 return true;
             } catch (final Exception e) {
                 //alert("exception e = " + e);
-                callback.error("setDimension error :: " + e.getMessage()+ " - " + e.getString());
+                callback.error("setDimension error :: " + e.getMessage());
             }
         }
         else if (action.equals("setMetric")) {
@@ -90,7 +90,7 @@ public class GAPlugin extends CordovaPlugin {
                 return true;
             } catch (final Exception e) {
                 //alert("exception e = " + e);
-                callback.error("setMetric error :: " + e.getMessage()+ " - " + e.getString());
+                callback.error("setMetric error :: " + e.getMessage());
             }
         }
         return false;
