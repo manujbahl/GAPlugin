@@ -56,7 +56,7 @@ public class GAPlugin extends CordovaPlugin {
                 return true;
             } catch (final Exception e) {
                 //alert("exception e = " + e);
-                callback.error("trackEvent error :: " + e.getMessage() + "at state - " + state););
+                callback.error("trackEvent error :: " + e.getMessage() + "at state - " + state);
             }
         } else if (action.equals("trackPage")) {
             try {
