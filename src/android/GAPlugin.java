@@ -16,15 +16,20 @@ public class GAPlugin extends CordovaPlugin {
         Tracker tracker = ga.getDefaultTracker();
 
         if (action.equals("initGA")) {
+            String state = "1";
             try {
+                state = "2";
                 tracker = ga.getTracker(args.getString(0));
+                state = "3";
                 /*GAServiceManager.getInstance().setDispatchPeriod(args.getInt(1));*/
                 GAServiceManager.getInstance().setLocalDispatchPeriod(args.getInt(1));
+                state = "4";
                 callback.success("initGA - id = " + args.getString(0) + "; interval = " + args.getInt(1) + " seconds");
+                state = "5";
                 return true;
             } catch (final Exception e) {
                 //alert("exception e = " + e);
-                callback.error("initGA error :: " + e.getMessage());
+                callback.error("initGA error :: " + e.getMessage() + "at state - " + state);
             }
         } else if (action.equals("exitGA")) {
             try {
@@ -38,15 +43,20 @@ public class GAPlugin extends CordovaPlugin {
                 callback.error("exitGA error :: " + e.getMessage());
             }
         } else if (action.equals("trackEvent")) {
+            String state = "1";
             try {
+                state = "2";
                 //alert("trackEvent");
                 /*tracker.sendEvent(args.getString(0), args.getString(1), args.getString(2), args.getLong(3));  */
+                state = "3";
                 tracker.send(MapBuilder.createEvent(args.getString(0), args.getString(1), args.getString(2), args.getLong(3)).build());
+                state = "4";
                 callback.success("trackEvent - category = " + args.getString(0) + "; action = " + args.getString(1) + "; label = " + args.getString(2) + "; value = " + args.getInt(3));
+                state = "5";
                 return true;
             } catch (final Exception e) {
                 //alert("exception e = " + e);
-                callback.error("trackEvent error :: " + e.getMessage());
+                callback.error("trackEvent error :: " + e.getMessage() + "at state - " + state););
             }
         } else if (action.equals("trackPage")) {
             try {
