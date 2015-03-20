@@ -9,6 +9,8 @@
     // period = the minimum interval for transmitting tracking events if any exist in the queue
     GAPlugin.prototype.init = function(success, fail, id, period) {
         console.log("GAPlugin init with id = " + id);
+        console.log(success);
+        console.log(fail);
         return cordovaRef.exec(success, fail, 'GAPlugin', 'initGA', [id, period]);
     };
 

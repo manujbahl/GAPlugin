@@ -7,11 +7,8 @@ import org.apache.cordova.CordovaPlugin;          // modificato da org.apache.co
 import org.apache.cordova.CallbackContext;          // modificato org.apache.cordova.CallbackContext a org.apache.cordova.api.CallbackContext
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 public class GAPlugin extends CordovaPlugin {
-    public Log log = LogFactory.getLog(GAPlugin.class);
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callback) throws JSONException{
@@ -20,8 +17,6 @@ public class GAPlugin extends CordovaPlugin {
 
         if (action.equals("initGA")) {
             try {
-                log.debug("initGA");
-
                 tracker = ga.getTracker(args.getString(0));
                 /*GAServiceManager.getInstance().setDispatchPeriod(args.getInt(1));*/
                 GAServiceManager.getInstance().setLocalDispatchPeriod(args.getInt(1));
@@ -29,7 +24,7 @@ public class GAPlugin extends CordovaPlugin {
                 return true;
             } catch (final Exception e) {
                 //alert("exception e = " + e);
-                callback.error(e.getMessage());
+                callback.error("initGA error :: " + e.getMessage() + " - " + e.getString());
             }
         } else if (action.equals("exitGA")) {
             try {
@@ -40,7 +35,7 @@ public class GAPlugin extends CordovaPlugin {
                 return true;
             } catch (final Exception e) {
                 //alert("exception e = " + e);
-                callback.error(e.getMessage());
+                callback.error("exitGA error :: " + e.getMessage()+ " - " + e.getString());
             }
         } else if (action.equals("trackEvent")) {
             try {
@@ -51,7 +46,7 @@ public class GAPlugin extends CordovaPlugin {
                 return true;
             } catch (final Exception e) {
                 //alert("exception e = " + e);
-                callback.error(e.getMessage());
+                callback.error("trackEvent error :: " + e.getMessage());
             }
         } else if (action.equals("trackPage")) {
             try {
@@ -62,7 +57,7 @@ public class GAPlugin extends CordovaPlugin {
                 return true;
             } catch (final Exception e) {
                 //alert("exception e = " + e);
-                callback.error(e.getMessage());
+                callback.error("trackPage error :: " + e.getMessage()+ " - " + e.getString());
             }
         } else if (action.equals("setVariable")) {
             try {
@@ -73,7 +68,7 @@ public class GAPlugin extends CordovaPlugin {
                 return true;
             } catch (final Exception e) {
                 //alert("exception e = " + e);
-                callback.error(e.getMessage());
+                callback.error("setVariable error :: " + e.getMessage()+ " - " + e.getString());
             }
         }
         else if (action.equals("setDimension")) {
@@ -84,7 +79,7 @@ public class GAPlugin extends CordovaPlugin {
                 return true;
             } catch (final Exception e) {
                 //alert("exception e = " + e);
-                callback.error(e.getMessage());
+                callback.error("setDimension error :: " + e.getMessage()+ " - " + e.getString());
             }
         }
         else if (action.equals("setMetric")) {
@@ -95,7 +90,7 @@ public class GAPlugin extends CordovaPlugin {
                 return true;
             } catch (final Exception e) {
                 //alert("exception e = " + e);
-                callback.error(e.getMessage());
+                callback.error("setMetric error :: " + e.getMessage()+ " - " + e.getString());
             }
         }
         return false;
