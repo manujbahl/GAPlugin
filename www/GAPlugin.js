@@ -8,6 +8,7 @@
     // id = the GA account ID of the form 'UA-00000000-0'
     // period = the minimum interval for transmitting tracking events if any exist in the queue
     GAPlugin.prototype.init = function(success, fail, id, period) {
+        console.log("GAPlugin init with id = " + id);
         return cordovaRef.exec(success, fail, 'GAPlugin', 'initGA', [id, period]);
     };
 
@@ -18,6 +19,7 @@
     // eventLabel = The event label. This parameter may be a blank string to indicate no label.
     // eventValue = The event value. This parameter may be -1 to indicate no value.
     GAPlugin.prototype.trackEvent = function(success, fail, category, eventAction, eventLabel, eventValue) {
+        console.log("GAPlugin trackEvent with category = " + category  + " eventAction = " + eventAction + "eventLabel = " + eventLabel);
         return cordovaRef.exec(success, fail, 'GAPlugin', 'trackEvent', [category, eventAction, eventLabel, eventValue]);
     };
 
@@ -26,6 +28,7 @@
     //
     // pageURL = the URL of the page view
     GAPlugin.prototype.trackPage = function(success, fail, pageURL) {
+        console.log("GAPlugin trackPage with pageURL = " + pageURL);
         return cordovaRef.exec(success, fail, 'GAPlugin', 'trackPage', [pageURL]);
     };
 
