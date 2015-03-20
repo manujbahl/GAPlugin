@@ -11,7 +11,9 @@
         console.log("GAPlugin init with id = " + id);
         console.log(success);
         console.log(fail);
-        return cordovaRef.exec(success, fail, 'GAPlugin', 'initGA', [id, period]);
+        var ret = cordovaRef.exec(success, fail, 'GAPlugin', 'initGA', [id, period]);
+        console.log("GAPlugin COMPLETEED trackEvent with ret = " + ret);
+        return ret;
     };
 
     // log an event
@@ -22,7 +24,10 @@
     // eventValue = The event value. This parameter may be -1 to indicate no value.
     GAPlugin.prototype.trackEvent = function(success, fail, category, eventAction, eventLabel, eventValue) {
         console.log("GAPlugin trackEvent with category = " + category  + " eventAction = " + eventAction + "eventLabel = " + eventLabel);
-        return cordovaRef.exec(success, fail, 'GAPlugin', 'trackEvent', [category, eventAction, eventLabel, eventValue]);
+        var ret = cordovaRef.exec(success, fail, 'GAPlugin', 'trackEvent', [category, eventAction, eventLabel, eventValue]);
+        console.log("GAPlugin COMPLETEED trackEvent with ret = " + ret);
+        
+        return ret;
     };
 
 
